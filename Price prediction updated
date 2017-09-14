@@ -118,14 +118,6 @@ xgb_tree_model =  train(SalePrice~.,      # Predict SalePrice using all features
                         metric="rmsle",     # Use custom performance metric
                         maximize = FALSE)   # Minimize the metric
 set.seed(123)  # for reproducibility
-lasso_mod <- train(x=x_train,y=y_train,
-                   method="glmnet",
-                   metric="RMSE",
-                   maximize=FALSE,
-                   trControl=control,
-                   tuneGrid=expand.grid(alpha=1,  # Lasso regression
-                                        lambda=c(1,0.1,0.05,0.01,seq(0.009,0.001,-0.001),
-                                                 0.00075,0.0005,0.0001)))
 
 xgb_tree_model$results
 
